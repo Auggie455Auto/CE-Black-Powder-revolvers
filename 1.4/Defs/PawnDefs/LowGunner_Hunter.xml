@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- ========== Tribals ========== -->
+
+  <PawnKindDef ParentName="TribalBase">
+    <defName>CE_Tribal_LowGunner</defName>
+    <label>Lightning</label>
+    <combatPower>65</combatPower>	
+    <minGenerationAge>25</minGenerationAge>
+    <maxGenerationAge>45</maxGenerationAge>
+    <initialWillRange>3~5</initialWillRange>
+    <initialResistanceRange>20~34</initialResistanceRange>
+    <gearHealthRange>
+      <min>0.5</min>
+      <max>1.8</max>
+    </gearHealthRange>
+    <apparelMoney>
+      <min>180</min>
+      <max>350</max>
+    </apparelMoney>
+    <apparelAllowHeadgearChance>0.25</apparelAllowHeadgearChance>	
+    <apparelTags>
+      <li>Tribal</li>
+    </apparelTags>
+    <weaponMoney>
+      <min>115</min>
+      <max>320</max>
+    </weaponMoney>
+    <weaponTags>
+      <li>Auggie_BP_LongArm</li>
+    </weaponTags>
+    <disallowedTraits>
+      <li>Brawler</li>
+    </disallowedTraits>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>	
+    <combatEnhancingDrugsChance>0.3</combatEnhancingDrugsChance>
+    <combatEnhancingDrugsCount>1~2</combatEnhancingDrugsCount>
+    <modExtensions>
+      <li Class="CombatExtended.LoadoutPropertiesExtension">
+        <primaryMagazineCount>
+          <min>2</min>
+          <max>5</max>
+        </primaryMagazineCount>
+        <shieldMoney>
+          <min>120</min>
+          <max>160</max>
+        </shieldMoney>
+        <shieldTags>
+          <li>TribalShield</li>
+        </shieldTags>
+        <shieldChance>0.9</shieldChance>
+        <sidearms>
+          <li>
+			<generateChance>0.8</generateChance>		  
+            <sidearmMoney>
+              <min>95</min>
+              <max>300</max>
+            </sidearmMoney>
+            <weaponTags>
+              <li>CE_Sidearm_Tribal</li>
+            </weaponTags>
+          </li>   
+		  <li>
+			<generateChance>0.25</generateChance>
+			<sidearmMoney>
+				<min>50</min>
+				<max>200</max>
+			</sidearmMoney>
+			<weaponTags>
+				<li>Auggie_BP_Sidearm</li>
+			</weaponTags>
+			<magazineCount>
+				<min>1</min>
+				<max>3</max>
+			</magazineCount>
+		  </li>		  
+        </sidearms>
+      </li>
+    </modExtensions>
+  </PawnKindDef>
+
+</Defs>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+  <!-- ==================== LeMat Revolver ==================== -->
+
+  <ThingDef ParentName="BaseMakeableGun">
+    <defName>CE_Gun_LeMatRevolverBP</defName>
+    <label>LeMat Revolver</label>
+    <description>LeMat. Nicknamed the "grapeshot revolver", the LeMat features a 9-shot cylinder and a centerline support combined into a shotgun barrel capable of firing a 20 bore shot. A favorite of eccentric officers.\n\n"King Cotton, The Leader of All"</description>
+	<generateAllowChance>0.75</generateAllowChance>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponRanged/LeMat_Blackpowder</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Revolver</soundInteract>
+    <statBases>
+      <WorkToMake>11000</WorkToMake>
+      <SightsEfficiency>0.7</SightsEfficiency>
+      <ShotSpread>0.15</ShotSpread>
+      <SwayFactor>1.65</SwayFactor>
+      <Bulk>3.56</Bulk>
+      <Mass>1.40</Mass>
+      <RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+    </statBases>
+    <costList>
+	  <WoodLog>5</WoodLog>		
+      <Steel>35</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <recipeMaker>
+	<researchPrerequisite>Stage2R_BP</researchPrerequisite>
+      <recipeUsers>
+        <li>FueledSmithy</li>
+        <li>ElectricSmithy</li>
+      </recipeUsers>
+		  <skillRequirements>
+			<Crafting>4</Crafting>
+		  </skillRequirements>  
+    </recipeMaker>    
+    <verbs>
+      <li Class="CombatExtended.VerbPropertiesCE">
+		<recoilAmount>2.29</recoilAmount>		  
+        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_44Shot_Ball</defaultProjectile>
+        <warmupTime>0.5</warmupTime>
+        <range>12</range>
+        <soundCast>Shot_Revolver</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CombatExtended.CompProperties_AmmoUser">
+        <magazineSize>9</magazineSize>
+        <reloadOneAtATime>true</reloadOneAtATime>		
+        <reloadTime>4.5</reloadTime>
+        <ammoSet>AmmoSet_44Shot</ammoSet>
+      </li>
+      <li Class="CombatExtended.CompProperties_FireModes" />
+      <li Class="CombatExtended.CompProperties_UnderBarrel">
+          <propsUnderBarrel>
+            <magazineSize>1</magazineSize>
+			<reloadOneAtATime>true</reloadOneAtATime>				
+            <reloadTime>5</reloadTime>
+            <ammoSet>AmmoSet_20GaugeBP_Slow</ammoSet>
+          </propsUnderBarrel>
+          <verbPropsUnderBarrel>
+            <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+            <hasStandardCommand>true</hasStandardCommand>
+            <defaultProjectile>Bullet_20GaugeBP_Buck</defaultProjectile>
+            <warmupTime>0.6</warmupTime>
+            <range>12</range>
+            <soundCast>Shot_Shotgun_NoRack</soundCast>
+            <soundCastTail>GunTail_Medium</soundCastTail>
+            <muzzleFlashScale>9</muzzleFlashScale>
+          </verbPropsUnderBarrel>
+          <propsFireModesUnderBarrel>
+            <aiUseBurstMode>FALSE</aiUseBurstMode>
+            <aiAimMode>AimedShot</aiAimMode>
+            <aimedBurstShotCount>1</aimedBurstShotCount>
+          </propsFireModesUnderBarrel>
+      </li>       
+    </comps>
+	<modExtensions>
+		<li Class="CombatExtended.GunDrawExtension">
+			<DrawSize>1.1,1.1</DrawSize>
+			<DrawOffset>0.01,-0.02</DrawOffset>
+		</li>
+		<li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="IssacZhuang.MuzzleFlash">
+			<def>MF_StandardMuzzleFalshTwo</def>
+			<drawSize>(0.9,0.7)</drawSize>
+			<offsets>
+				<li>(0.426,0.11)</li>
+			</offsets>
+		</li>			
+	</modExtensions>		
+    <weaponTags>
+      <li>SimpleGun</li>    
+      <li>CE_OneHandedWeapon</li>
+      <li>CE_AI_BROOM</li>
+      <li>CE_Sidearm</li>
+      <li>Revolver</li>
+	  <li>FrontierGunAdvanced</li>	  
+	  <li>NeolithicRangedChief</li>
+	  <li>Auggie_BP_LongArm</li>		  
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+    </weaponClasses>
+	<relicChance>3</relicChance>	
+    <thingSetMakerTags>
+      <li>RewardStandardQualitySuper</li>
+    </thingSetMakerTags>
+    <tools>
+      <li Class="CombatExtended.ToolCE">
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>1.54</cooldownTime>
+        <chanceFactor>1.5</chanceFactor>
+        <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+        <linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+      </li>
+      <li Class="CombatExtended.ToolCE">
+        <label>muzzle</label>
+        <capacities>
+          <li>Poke</li>
+        </capacities>
+        <power>2</power>
+        <cooldownTime>1.54</cooldownTime>
+        <armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+        <linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+      </li>
+    </tools>
+  </ThingDef>
+
+</Defs>

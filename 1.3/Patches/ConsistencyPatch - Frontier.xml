@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Weapons Expanded - Frontier</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VWEFT_Gun_HeavyRevolver"]/label</xpath>
+                    <value>
+                        <label>Heavy Revolver</label>
+                    </value>
+                </li>
+
+				<li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VWEFT_Gun_HeavyRevolver"]/comps/li[@Class="CombatExtended.CompProperties_AmmoUser"]/ammoSet</xpath>
+                    <value>
+                         <ammoSet>AmmoSet_357MagnumHR</ammoSet>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VWEFT_Gun_HeavyRevolver"]/verbs/li[@Class="CombatExtended.VerbPropertiesCE"]/defaultProjectile</xpath>
+                    <value>
+                          <defaultProjectile>Bullet_357MagnumHR_FMJ</defaultProjectile>
+                    </value>				
+				</li>	
+            </operations>
+        </match>
+    </Operation>
+</Patch>

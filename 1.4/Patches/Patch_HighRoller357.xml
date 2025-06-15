@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Weapons Expanded - Frontier</li>
+		</mods>
+	<match Class="PatchOperationAdd">
+		<xpath>Defs</xpath>
+		<value>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_357MagnumHR</defName>
+		<label>.357 Magnum</label>
+		<ammoTypes>
+			<Ammo_357Magnum_FMJ>Bullet_357MagnumHR_FMJ</Ammo_357Magnum_FMJ>
+			<Ammo_357Magnum_AP>Bullet_357MagnumHR_AP</Ammo_357Magnum_AP>
+			<Ammo_357Magnum_HP>Bullet_357MagnumHR_HP</Ammo_357Magnum_HP>
+		</ammoTypes>
+		<similarTo>AmmoSet_PistolMagnum</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<!-- ================== Projectiles ================== -->
+
+	
+	<ThingDef ParentName="Base357MagnumBullet">
+		<defName>Bullet_357MagnumHR_FMJ</defName>
+		<label>.357 Magnum bullet (FMJ)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>13</damageAmountBase>
+			<armorPenetrationSharp>6</armorPenetrationSharp>
+			<armorPenetrationBlunt>18.6</armorPenetrationBlunt>
+			<secondaryDamage>
+				<li>
+                  <def>Bullet</def>
+                  <amount>13</amount>
+                  <chance>0.33</chance>
+				</li>
+			</secondaryDamage>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base357MagnumBullet">
+		<defName>Bullet_357MagnumHR_AP</defName>
+		<label>.357 Magnum bullet (AP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>8</damageAmountBase>
+			<armorPenetrationSharp>12</armorPenetrationSharp>
+			<armorPenetrationBlunt>18.6</armorPenetrationBlunt>
+			<secondaryDamage>
+				<li>
+                  <def>Bullet</def>
+                  <amount>8</amount>
+                  <chance>0.33</chance>
+				</li>
+			</secondaryDamage>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="Base357MagnumBullet">
+		<defName>Bullet_357MagnumHR_HP</defName>
+		<label>.357 Magnum bullet (HP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+			<damageAmountBase>17</damageAmountBase>
+			<armorPenetrationSharp>3</armorPenetrationSharp>
+			<armorPenetrationBlunt>18.6</armorPenetrationBlunt>
+			<secondaryDamage>
+				<li>
+                  <def>Bullet</def>
+                  <amount>17</amount>
+                  <chance>0.33</chance>
+				</li>
+			</secondaryDamage>
+		</projectile>
+	</ThingDef>
+	
+
+		</value>	
+	</match>
+</Operation>
+			  
+
+</Patch>

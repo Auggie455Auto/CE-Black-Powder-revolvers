@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ResearchTabDef>
+		<defName>BPResearchTab</defName>
+		<label>Cap'n Ball</label>
+	</ResearchTabDef>
+
+	<ResearchProjectDef>
+		<defName>Stage1R_BP</defName>
+		<label>Cap and ball Revolvers</label>
+		<description>Unlocks a basic set of Cap and Ball Revolvers</description>
+			<baseCost>350</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Smithing</li>
+		</prerequisites>
+		<tab>BPResearchTab</tab>
+			<researchViewX>0</researchViewX>
+			<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>Stage2R_BP</defName>
+		<label>Advanced Cap and Ball Revolvers</label>
+		<description>Unlocks more complicated Cap and Ball Revolvers</description>
+			<baseCost>450</baseCost>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>Stage1R_BP</li>
+		</prerequisites>
+		<tab>BPResearchTab</tab>
+			<researchViewX>1</researchViewX>
+			<researchViewY>2</researchViewY>
+	</ResearchProjectDef>
+	
+</Defs>

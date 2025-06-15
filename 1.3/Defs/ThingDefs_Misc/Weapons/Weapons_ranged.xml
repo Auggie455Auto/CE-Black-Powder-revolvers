@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+<ThingDef Name="BaseGun_CE" Abstract="True">
+    <category>Item</category>
+    <thingClass>ThingWithComps</thingClass>
+    <equipmentType>Primary</equipmentType>
+    <pathCost>10</pathCost>
+    <useHitPoints>True</useHitPoints>
+    <selectable>True</selectable>
+    <graphicData>
+      <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+    </graphicData>
+    <drawGUIOverlay>true</drawGUIOverlay>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <DeteriorationRate>2</DeteriorationRate>
+      <SellPriceFactor>0.5</SellPriceFactor>
+    </statBases>
+    <altitudeLayer>Item</altitudeLayer>
+    <alwaysHaulable>True</alwaysHaulable>
+    <tickerType>Never</tickerType>
+    <techLevel>Industrial</techLevel>
+    <smeltable>true</smeltable>
+    <thingCategories>
+      <li>WeaponsRanged</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Forbiddable" />
+      <li>
+        <compClass>CompEquippable</compClass>
+      </li>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponGun</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef Name="BaseMakeableGun_CE" ParentName="BaseGun_CE" Abstract="True">
+    <recipeMaker>
+      <workSpeedStat>SmithingSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <recipeUsers>
+        <li>TableMachining</li>
+      </recipeUsers>
+      <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+    </recipeMaker>
+  </ThingDef>
+
+  <ThingDef Name="BaseHumanMakeableGun_CE" ParentName="BaseMakeableGun" Abstract="True">
+    <weaponTags>
+      <li>Gun</li>
+    </weaponTags>
+  </ThingDef>
+
+
+	<!-- ==================== New Army ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun_CE">
+		<defName>CE_Gun_RemingtonNewArmy</defName>
+		<label>Remington New Army</label>
+		<description>Remington 1858 New Army. The Remington revolver offers a one piece frame that has more strength over older designs, leading to higher durability and innate accuracy. An empty cylinder can be swapped with loaded spare, leading to lightning fast reloads.\n\n"When I'm paid I always see the job through"</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Remington_New_Army</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>7000</WorkToMake>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.14</ShotSpread>
+			<SwayFactor>1.55</SwayFactor>
+			<Bulk>3.27</Bulk>
+			<Mass>1.27</Mass>
+			<RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_44Shot_Ball</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>12</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>				
+				<reloadTime>4.3</reloadTime>
+				<ammoSet>AmmoSet_44Ball45Colt</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<recipeMaker>
+		<researchPrerequisite>Stage2R_BP</researchPrerequisite>
+			<recipeUsers>
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>   
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+		       	  <li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+		 <li>SimpleGun</li>
+         <li>CE_Sidearm</li>
+		 <li>Revolver</li>
+         <li>CE_OneHandedWeapon</li>
+		 <li>FrontierGunSimple</li>
+		</weaponTags>
+	</ThingDef>
+	
+		<!-- ==================== Walker ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun_CE">
+		<defName>CE_Gun_WalkerBP</defName>
+		<label>Colt Walker</label>
+		<description>1847 Colt Walker. Samuel Colt's second-ever handgun design was this Texas behemoth, The Colt-Walker Revolver was designed to replace the old single shot saddle pistols while still having similar power, enough to kill a horse in one shot. the largest most powerful back-powder revolver developed, pushing a 44 slug with 60 grains of black powder.\n\n"Well are ya' gonna pull those pistols or whistle Dixie?"</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Colt_Walker</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>7000</WorkToMake>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.13</ShotSpread>
+			<SwayFactor>1.97</SwayFactor>
+			<Bulk>3.90</Bulk>
+			<Mass>2.0</Mass>
+			<RangedWeapon_Cooldown>0.87</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>35</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_44Shot_Ball</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>14</range>
+				<soundCast>Shot_SARevolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>	
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<reloadTime>4.8</reloadTime>
+				<ammoSet>AmmoSet_44ShotWalker</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<recipeMaker>
+			<researchPrerequisite>Stage1R_BP</researchPrerequisite>
+			<recipeUsers>
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>   
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>4</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.85</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+		       	  <li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<modExtensions>
+		<li Class="CombatExtended.GunDrawExtension">
+			<DrawSize>1.20,1.20</DrawSize>
+			<DrawOffset>0.03,-0.08</DrawOffset>
+		</li>	
+		</modExtensions>
+		<weaponTags>
+		 <li>SimpleGun</li>
+		 <li>Revolver</li>
+         <li>CE_OneHandedWeapon</li>
+		 <li>FrontierGunSimple</li>
+		 <li>NeolithicRangedChief</li>
+		</weaponTags>
+	</ThingDef>
+	
+	<!-- ==================== Navy ==================== -->
+	
+	<ThingDef ParentName="BaseHumanMakeableGun_CE">
+		<defName>CE_Gun_Colt1851Navy</defName>
+		<label>Colt 1851 Navy</label>
+		<description>Colt 1851 Navy. One of the most popular military colt designs both in the US and the export market. .36 caliber bore with an excellent balance and grip, just point and shoot.\n\n"You see in this world there's two kinds of people my friend. Those with loaded guns, and those who dig."</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Colt_M1851_Navy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>3500</WorkToMake>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.15</ShotSpread>
+			<SwayFactor>1.5</SwayFactor>
+			<Bulk>2.10</Bulk>
+			<Mass>1.11</Mass>
+			<RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>25</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_36Shot_Ball</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>12</range>
+				<soundCast>Shot_Navy</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<reloadTime>4.4</reloadTime>
+				<ammoSet>AmmoSet_36Shot</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<recipeMaker>
+		<researchPrerequisite>Stage1R_BP</researchPrerequisite>
+			<recipeUsers>
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>   
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+		       	  <li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+		 <li>SimpleGun</li>
+         <li>CE_Sidearm</li>
+         <li>CE_OneHandedWeapon</li>
+		 <li>FrontierGunSimple</li>
+		</weaponTags>
+		<modExtensions>
+			<li Class="CombatExtended.GunDrawExtension">
+				<DrawSize>0.92,0.92</DrawSize>
+				<DrawOffset>0.0,0.0</DrawOffset>
+			</li>
+		</modExtensions>
+	</ThingDef>	
+
+	<!-- ==================== Starr ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun_CE">
+		<defName>CE_Gun_StarrRevolver</defName>
+		<label>Starr Revolver</label>
+		<description>Starr Revolver. An early development of a true double-action revolver, rather then cocking the gun by manual pulling the hammer down, the hammer is cocked via the trigger pull. Less popular then single action models due to its fragility.\n\n"You just shot an unarmed man"-"He should have armed himself"</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Starr_Revolver</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>5000</WorkToMake>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.14</ShotSpread>
+			<SwayFactor>1.50</SwayFactor>
+			<Bulk>3.20</Bulk>
+			<Mass>1.30</Mass>
+			<RangedWeapon_Cooldown>0.48</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>25</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_44Shot_Ball</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>12</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>6</magazineSize>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<reloadTime>4.4</reloadTime>
+				<ammoSet>AmmoSet_44Shot</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<recipeMaker>
+		<researchPrerequisite>Stage2R_BP</researchPrerequisite>
+			<recipeUsers>
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>   
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+		       	  <li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+		 <li>SimpleGun</li>
+         <li>CE_Sidearm</li>
+		 <li>Revolver</li>
+		 <li>CE_AI_BROOM</li>
+         <li>CE_OneHandedWeapon</li>
+		 <li>FrontierGunSimple</li>
+		 <li>NeolithicRangedChief</li>
+		</weaponTags>
+	</ThingDef>	
+	
+		<!-- ==================== Walch Revolver ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun_CE">
+		<defName>CE_Gun_WalchRevolver</defName>
+		<label>Walch Revolver</label>
+		<description>Walch Navy Revolver. Patented by John Walch in 1859, this is a .36 caliber revolver using superimposed chambers, meaning that each of the six chambers could hold two shots, for a total of 12 rounds before reloading. The revolver has two hammers and two side by side triggers, with the trigger for the front loading being positioned slightly ahead of the rear load’s trigger, to help ensure that they are fired in the correct order. 2 shots can be fired in very quick succession.\n\n"Twelve shots... More than enough to kill anything that moves."</description>
+		<generateAllowChance>0.33</generateAllowChance>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Walch_Navy</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>5000</WorkToMake>
+			<SightsEfficiency>0.70</SightsEfficiency>
+			<ShotSpread>0.17</ShotSpread>
+			<SwayFactor>1.07</SwayFactor>
+			<Bulk>3.56</Bulk>
+			<Mass>1.30</Mass>
+			<RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+		</statBases>
+		<costList>
+			<Steel>30</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_36Shot_Ball</defaultProjectile>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+				<warmupTime>0.5</warmupTime>
+				<range>12</range>
+				<soundCast>Shot_Navy</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>12</magazineSize>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<reloadTime>4.2</reloadTime>
+				<ammoSet>AmmoSet_36Shot</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>Snapshot</aiAimMode>
+			</li>
+		</comps>
+		<recipeMaker>
+		<researchPrerequisite>Stage2R_BP</researchPrerequisite>
+			<recipeUsers>
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>   
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>grip</label>
+				<capacities>
+				  <li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+		       	  <li>Poke</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>1.54</cooldownTime>
+				<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+		 <li>SimpleGun</li>
+         <li>CE_Sidearm</li>
+		 <li>Revolver</li>
+		 <li>CE_AI_BROOM</li>
+         <li>CE_OneHandedWeapon</li>
+		 <li>FrontierGunSimple</li>
+		 <li>NeolithicRangedChief</li>
+		</weaponTags>
+	</ThingDef>	
+	
+		<!-- ==================== Colt Shotgun ==================== -->
+
+	<ThingDef ParentName="BaseHumanMakeableGun_CE">
+		<defName>CE_Gun_ColtShotgun</defName>
+		<label>Root Revolving Shotgun</label>
+		<description>Colt 1855 Revolving Shotgun. Revolver shotgun using the side hammer system developed by Elisha Root for the root pocket revolver. This model is in 20 Gauge (20 Bore, .60 Cal).\n\n"Go ye into the village over against you; in the which at your entering ye shall find a colt tied, whereon yet never man sat: loose him, and bring him hither."</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Colt_Revolver_Shotgun</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<statBases>
+			<WorkToMake>9500</WorkToMake>
+			<SightsEfficiency>1.00</SightsEfficiency>
+			<ShotSpread>0.12</ShotSpread>
+			<SwayFactor>1.31</SwayFactor>
+			<Bulk>7.46</Bulk>
+			<Mass>3.86</Mass>
+			<RangedWeapon_Cooldown>0.89</RangedWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>41</equippedAngleOffset>
+		<costList>
+			<Steel>40</Steel>
+			<WoodLog>15</WoodLog>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<verbs>
+			<li Class="CombatExtended.VerbPropertiesCE">
+				<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Bullet_20GaugeBP_Buck</defaultProjectile>
+				<warmupTime>0.6</warmupTime>
+				<range>20</range>
+				<soundCast>Shot_BPShotgun</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<comps>
+			<li Class="CombatExtended.CompProperties_AmmoUser">
+				<magazineSize>5</magazineSize>
+				<reloadOneAtATime>true</reloadOneAtATime>
+				<reloadTime>4.8</reloadTime>
+				<ammoSet>AmmoSet_20GaugeBP_Fast</ammoSet>
+			</li>
+			<li Class="CombatExtended.CompProperties_FireModes">
+				<aiUseBurstMode>FALSE</aiUseBurstMode>
+				<aiAimMode>AimedShot</aiAimMode>
+			</li>
+		</comps>
+		<recipeMaker>
+		<researchPrerequisite>Stage1R_BP</researchPrerequisite>
+			<recipeUsers>
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+			</recipeUsers>
+		</recipeMaker>   
+		<tools>
+			<li Class="CombatExtended.ToolCE">
+				<label>stock</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<chanceFactor>1.5</chanceFactor>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>barrel</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>5</power>
+				<cooldownTime>2.02</cooldownTime>
+				<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+			</li>
+			<li Class="CombatExtended.ToolCE">
+				<label>muzzle</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>1.55</cooldownTime>
+				<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+				<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+			</li>
+		</tools>
+		<weaponTags>
+		 <li>SimpleGun</li>
+         <li>CE_AI_AssaultWeapon</li>
+	     <li>FrontierGunSimple</li>
+		 <li>NeolithicRangedChief</li>
+		</weaponTags>
+	</ThingDef>	
+	
+</Defs>

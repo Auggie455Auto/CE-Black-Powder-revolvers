@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <CombatExtended.AmmoCategoryDef>
+        <defName>Conical</defName>
+        <label>Conical Bullet</label>
+        <labelShort>Conical</labelShort>
+        <description>Features a rounded bullet, further improving accuracy and armour penetration.</description>
+    </CombatExtended.AmmoCategoryDef>
+</Defs>
